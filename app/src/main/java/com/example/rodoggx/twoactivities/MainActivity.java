@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     private EditText messageEditText;
     private TextView replyMsg;
-    private TextView replyHdr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,24 +30,17 @@ public class MainActivity extends AppCompatActivity {
         messageEditText = (EditText) findViewById(R.id.edit_text_main);
 
         replyMsg = (TextView) findViewById(R.id.main_msg_reply);
-        replyHdr = (TextView) findViewById(R.id.main_hdr_reply);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: " + "Start Second Activity");
                 startSecondActivity(view);
             }
         });
 
         if (savedInstanceState != null) {
-//            boolean isVisible = savedInstanceState.getBoolean("reply_Hdr");
-//            if (isVisible) {
                 replyMsg.setText(savedInstanceState.getString("reply_Msg"));
                 replyMsg.setVisibility(View.VISIBLE);
-//            }
-            Log.d(TAG, "onCreate: savedInstanceState != null" );
-            Log.d(TAG, "onCreate: savedInstanceState != null " + savedInstanceState.getString("reply_Msg"));
         }
     }
 
@@ -69,15 +61,12 @@ public class MainActivity extends AppCompatActivity {
                 replyMsg.setText(reply);
                 replyMsg.setVisibility(View.VISIBLE);
             }
-            Log.d(TAG, "onActivityResult: " + TEXT_REQUEST);
-            Log.d(TAG, "onActivityResult: " + resultCode + " ResultOK " + RESULT_OK);
         }
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-//            outState.putBoolean("reply_Hdr", true);
         Log.d(TAG, "onSaveInstanceState: " + replyMsg.getText().toString());
             outState.putString("reply_Msg", replyMsg.getText().toString());
     }
