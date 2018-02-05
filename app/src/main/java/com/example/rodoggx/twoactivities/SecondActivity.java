@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class SecondActivity extends AppCompatActivity {
 
     private static final String TAG = SecondActivity.class.getSimpleName();
-    public static final String EXTRA_REPLY =  "com.example.rodoggx.twoactivities.extra.REPLY";;
+    public static final String EXTRA_REPLY =  "com.example.rodoggx.twoactivities.extra.REPLY";
     private EditText replyEditText;
     private Button button;
 
