@@ -44,6 +44,9 @@ public class SecondActivity extends AppCompatActivity {
         Intent replyIntent = new Intent();
         replyIntent.putExtra(EXTRA_REPLY, reply);
         setResult(RESULT_OK, replyIntent);
+
+        Log.d(TAG, "End of Second Activity: ");
+
         finish();
     }
 }
